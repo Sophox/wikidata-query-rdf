@@ -18,6 +18,7 @@ import javax.servlet.ServletContextEvent;
 
 import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.resultio.TupleQueryResultFormat;
+import org.osm.query.rdf.blazegraph.tabular.TabularServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wikidata.query.rdf.blazegraph.categories.CategoriesStoredQuery;
@@ -111,18 +112,19 @@ public class WikibaseContextListener extends BigdataRDFServletContextListener {
         LabelService.register();
         GeoService.register();
         MWApiServiceFactory.register(metricRegistry.timer(name(MWApiServiceCall.class, MW_API_REQUEST)));
+        TabularServiceFactory.register();
         CategoriesStoredQuery.register();
 
-        // Whitelist services we like by default
-        reg.addWhitelistURL(GASService.Options.SERVICE_KEY.toString());
-        reg.addWhitelistURL(ValuesServiceFactory.SERVICE_KEY.toString());
-        reg.addWhitelistURL(BDS.SEARCH_IN_SEARCH.toString());
-        reg.addWhitelistURL(SliceServiceFactory.SERVICE_KEY.toString());
-        reg.addWhitelistURL(SampleServiceFactory.SERVICE_KEY.toString());
-        loadWhitelist(reg);
-
-        // Initialize remote services
-        reg.setDefaultServiceFactory(getDefaultServiceFactory());
+//        // Whitelist services we like by default
+//        reg.addWhitelistURL(GASService.Options.SERVICE_KEY.toString());
+//        reg.addWhitelistURL(ValuesServiceFactory.SERVICE_KEY.toString());
+//        reg.addWhitelistURL(BDS.SEARCH_IN_SEARCH.toString());
+//        reg.addWhitelistURL(SliceServiceFactory.SERVICE_KEY.toString());
+//        reg.addWhitelistURL(SampleServiceFactory.SERVICE_KEY.toString());
+//        loadWhitelist(reg);
+//
+//        // Initialize remote services
+//        reg.setDefaultServiceFactory(getDefaultServiceFactory());
 
         // Override date functions so that we can handle them
         // via WikibaseDate
@@ -224,6 +226,7 @@ public class WikibaseContextListener extends BigdataRDFServletContextListener {
         defaultDecls.put("geof", GeoSparql.FUNCTION_NAMESPACE);
         defaultDecls.put("mediawiki", Mediawiki.NAMESPACE);
         defaultDecls.put("mwapi", Mediawiki.API);
+        defaultDecls.put("tabular", TabularServiceFactory.COLUMN_NAMESPACE);
         defaultDecls.put("gas", GASService.Options.NAMESPACE);
         defaultDecls.put("ontolex", Ontolex.NAMESPACE);
         defaultDecls.put("dct", Dct.NAMESPACE);
