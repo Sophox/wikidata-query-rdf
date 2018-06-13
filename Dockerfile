@@ -52,6 +52,8 @@ ENV MEMORY="" \
 
 WORKDIR /opt/wdqs
 
+COPY ./dist/src/script/RWStore.properties .
+
 EXPOSE 9999
 
 ENTRYPOINT [ "runBlazegraph.sh" ]
