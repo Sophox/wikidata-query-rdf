@@ -7,7 +7,7 @@ RUN apk add --no-cache \
     bash \
     curl
 
-ENV PATH $PATH:/opt/wdqs/
+ENV PATH=$PATH:/opt/wdqs/
 
 ENV WQR_VERSION=0.3.0
 
@@ -21,7 +21,7 @@ RUN mkdir -p /opt \
     && rm service-${WQR_VERSION}-SNAPSHOT-dist.zip \
     && mv service-${WQR_VERSION}-SNAPSHOT /opt/wdqs
 
-ARG heap_size=1g
+ARG heap_size=2g
 ARG log_dir=/var/log/wdqs
 ARG port=9999
 
