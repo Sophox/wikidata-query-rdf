@@ -25,8 +25,7 @@ ARG heap_size=2g
 ARG log_dir=/var/log/wdqs
 ARG port=9999
 
-ENV MEMORY="" \
-    HOST="0.0.0.0" \
+ENV HOST="0.0.0.0" \
     PORT="9999" \
     DIR="/opt/wdqs" \
     HEAP_SIZE=$heap_size \
