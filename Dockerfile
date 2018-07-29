@@ -46,12 +46,12 @@ ENV HOST="0.0.0.0" \
     -XX:GCLogFileSize=20M" \
     EXTRA_JVM_OPTS="" \
     BLAZEGRAPH_OPTS="" \
-    CONFIG_FILE="RWStore.properties" \
+    CONFIG_FILE="RWStore.docker.properties" \
     DEBUG=
 
 WORKDIR /opt/wdqs
 
-COPY ./dist/src/script/RWStore.properties .
+COPY ./dist/src/script/RWStore.docker.properties ./dist/src/script/whitelist.txt .
 
 EXPOSE 9999
 
