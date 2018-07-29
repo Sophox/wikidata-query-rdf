@@ -13,15 +13,23 @@ ENV WQR_VERSION=0.3.0
 
 WORKDIR /tmp
 
-RUN curl -sSL https://github.com/sophox/wikidata-query-rdf/releases/download/${WQR_VERSION}/service-${WQR_VERSION}-SNAPSHOT-dist.zip -o service-${WQR_VERSION}-SNAPSHOT-dist.zip
 
-RUN mkdir -p /opt \
-    mkdir -p /var/log/wdqs \
+# FIXME !!!!   switch to sophox release dir
+RUN \
+    curl -sSL https://github.com/nickpeihl/wikidata-query-rdf/releases/download/${WQR_VERSION}/service-${WQR_VERSION}-SNAPSHOT-dist.zip -o service-${WQR_VERSION}-SNAPSHOT-dist.zip \
+    && curl -sSL https://github.com/sophox/wikidata-query-rdf/releases/download/${WQR_VERSION}/extras.zip -o extras.zip \
+    && mkdir -p /opt \
+    && mkdir -p /var/log/wdqs \
     && unzip -q /tmp/service-${WQR_VERSION}-SNAPSHOT-dist.zip \
     && rm service-${WQR_VERSION}-SNAPSHOT-dist.zip \
-    && mv service-${WQR_VERSION}-SNAPSHOT /opt/wdqs
+    && mv service-${WQR_VERSION}-SNAPSHOT /opt/wdqs \
+    && mkdir extras \
+    && unzip -q /tmp/extras.zip -d extras \
+    && rm extras.zip \
+    && cp -r extras/* /opt/wdqs \
+    && rm -rf extras
 
-ARG heap_size=2g
+ARG heap_size=8g
 ARG log_dir=/var/log/wdqs
 ARG port=9999
 
