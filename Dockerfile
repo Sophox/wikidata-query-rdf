@@ -51,7 +51,7 @@ ENV HOST="0.0.0.0" \
 
 WORKDIR /opt/wdqs
 
-COPY ./dist/src/script/RWStore.docker.properties ./dist/src/script/whitelist.txt .
+COPY ./dist/src/script/RWStore.docker.properties ./dist/src/script/whitelist.txt ./
 
 EXPOSE 9999
 
