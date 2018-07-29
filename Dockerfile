@@ -13,7 +13,7 @@ ENV WQR_VERSION=0.3.0
 
 WORKDIR /tmp
 
-RUN curl -sSL https://github.com/nickpeihl/wikidata-query-rdf/releases/download/${WQR_VERSION}/service-${WQR_VERSION}-SNAPSHOT-dist.zip -o service-${WQR_VERSION}-SNAPSHOT-dist.zip
+RUN curl -sSL https://github.com/sophox/wikidata-query-rdf/releases/download/${WQR_VERSION}/service-${WQR_VERSION}-SNAPSHOT-dist.zip -o service-${WQR_VERSION}-SNAPSHOT-dist.zip
 
 RUN mkdir -p /opt \
     mkdir -p /var/log/wdqs \
