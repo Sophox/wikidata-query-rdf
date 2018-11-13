@@ -1,5 +1,8 @@
 package org.osm.query.rdf.blazegraph;
 
+import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 import org.osm.query.rdf.common.uri.CommonTags;
 import org.osm.query.rdf.common.uri.MetaFields;
@@ -8,8 +11,6 @@ import org.osm.query.rdf.common.uri.OSM;
 import com.bigdata.rdf.internal.impl.TermId;
 import com.bigdata.rdf.internal.impl.uri.VocabURIByteIV;
 import com.bigdata.rdf.model.BigdataStatement;
-
-import static org.hamcrest.Matchers.instanceOf;
 
 public class OsmVocabularyUnitTest extends OsmBlazegraphTestBase {
     @Test

@@ -3,12 +3,13 @@ package org.osm.query.rdf.common.uri;
 /**
  * A list of tags with 100K+ usage in OpenStreetMap as seen at https://taginfo.openstreetmap.org/keys
  * This list can be regenerated with this command. Make sure you re-generate the database afterwards.
- *
-  curl https://taginfo.openstreetmap.org/api/4/keys/all | \
-    jq -r '.data[] | select(.count_all>100000) | [.count_all,"\""+.key+"\","] | @tsv' | \
-    sort -h --reverse | \
-    cut -f2 | \
-    pbcopy
+ * {@code
+     curl https://taginfo.openstreetmap.org/api/4/keys/all | \
+        jq -r '.data[] | select(.count_all>100000) | [.count_all,"\""+.key+"\","] | @tsv' | \
+        sort -h --reverse | \
+        cut -f2 | \
+        pbcopy
+ }
  */
 public final class CommonTags {
 
