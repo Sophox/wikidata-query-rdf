@@ -27,7 +27,6 @@ Unzipping the package, we find a customized Blazegraph, Jetty launcher, launch s
 .
 ├── blazegraph-service-0.1.0-dist.war
 ├── docs
-├── gui
 ├── jetty-runner-9.2.9.v20150224.jar
 ├── lib
 ├── munge.sh
