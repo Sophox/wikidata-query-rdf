@@ -4,8 +4,6 @@ data/
 .settings/
 target/
 .classpath
-.idea
-*.iml
 .project
 **/rules.log
 .execution-hints-*.log
