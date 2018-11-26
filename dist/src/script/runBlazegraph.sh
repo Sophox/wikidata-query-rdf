@@ -67,6 +67,8 @@ if [ ! -z "$LOG_CONFIG" ]; then
 fi
 
 echo "Running Blazegraph from `pwd` on :$PORT/$CONTEXT"
+
+set -x
 exec java \
      -server -XX:+UseG1GC ${MEMORY} ${DEBUG} ${GC_LOGS} ${LOG_OPTIONS} ${EXTRA_JVM_OPTS} \
      -Dcom.bigdata.rdf.sail.webapp.ConfigParams.propertyFile=${CONFIG_FILE} \
