@@ -19,13 +19,7 @@ RUN cd /app-src \
     && mvn package -DskipTests=true -DskipITs=true \
     && unzip -d /app /app-src/dist/target/service-${BLAZE_VERSION}-dist.zip \
     && mv /app/service-${BLAZE_VERSION}/* /app \
-    && rmdir /app/service-${BLAZE_VERSION} \
-    \
-    && cd /app \
-    && sed 's|%BLAZEGRAPH_JNL_DATA_FILE%|'"${BLAZEGRAPH_JNL_DATA_FILE}"'|g' RWStore.properties > subst.temp \
-    && mv subst.temp RWStore.properties \
-    && sed 's|%BLAZEGRAPH_ENDPOINTS%|'"${BLAZEGRAPH_ENDPOINTS}"'|g' services.json > subst.temp \
-    && mv subst.temp services.json
+    && rmdir /app/service-${BLAZE_VERSION}
 
 #
 # Create the actual production image
