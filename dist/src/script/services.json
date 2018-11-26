@@ -102,6 +102,6 @@
         }
     }
 },
-"endpoints": [%BLAZEGRAPH_ENDPOINTS%]
+"endpoints": ["wiki.openstreetmap.org"]
 }
 
